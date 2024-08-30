@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titlePage}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/style.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Exam 2</h1>
+    </div>
+    <div class="form">
+        <h2><strong>Student Info</strong></h2>
+        <form action="/students" method="POST" class="block">
+            <div class="field">
+                <label for="nameE" class="label">Name</label>
+                <input type="text" name="nameE" class="input" required>
+            </div>
+            <div class="field">
+                <label for="age" class="label">Age</label>
+                <input type="number" name="age" placeholder="0" min="0" max="120" class="input" required>
+            </div>
+            <div class="field">
+                <label for="course" class="label">Course</label>
+                <input type="text" name="course" class="input" required>
+            </div>
+            <div class="inputButton">
+                <input type="submit" value="Enter" class="button">
+            </div>
+        </form>
+    </div>
+    <div>
+        <div><h2>Student List</h2></div>
+        <div>
+            <ul>
+                {{#each studentList}}
+                    <li>
+                        <h3>Student Name: {{this.nameE}}</h3>
+                        <p>Age: {{this.age}}</p>
+                        <p>Course: {{this.course}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

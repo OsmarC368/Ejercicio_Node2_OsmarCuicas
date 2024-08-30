@@ -1,0 +1,25 @@
+.form {
+    width: 33vw;
+    height: 44vh;
+    background-color: rgb(125, 0, 0);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+h2{
+    font-size: 2.7em;
+}
+
+.inputButton{
+    display: flex;
+    flex-direction: column
+}
