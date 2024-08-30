@@ -34,7 +34,6 @@ app.get("/", (req, res) => {
 })
 
 app.get("/students", (req, res) => {
-    console.log(studentList)
     res.status(200).render('index', {titlePage: "Y Perry?", studentList: studentList});
 })
 
@@ -47,5 +46,10 @@ app.post('/students', (req, res) => {
     res.redirect('/students')
 })
 
-
+app.get('/students/:id', (req, res) => {
+    let temp = parseInt(req.params.id)
+    let student = studentList.find(x => {x.id == temp})
+    console.log(student)
+    res.render('studentDetails', student=student)
+})
 
