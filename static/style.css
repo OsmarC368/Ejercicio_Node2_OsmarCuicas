@@ -4,6 +4,7 @@
     background-color: rgb(125, 0, 0);
     padding: 30px;
     border-radius: 20px;
+    border: solid 2px white;
 }
 
 body {
@@ -22,4 +23,14 @@ h2{
 .inputButton{
     display: flex;
     flex-direction: column
+}
+
+.studentList{
+    background-color: rgb(125, 0, 0);
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 1.2em;
 }

@@ -41,15 +41,25 @@ app.post('/students', (req, res) => {
     let {nameE, age, course} = req.body
     let student = {id: studentList.length, nameE: nameE, age: age, course: course}
     studentList.push(student)
-    let newJSON = {data: studentList}
-    fs.writeFileSync(studentJsonPath, JSON.stringify(newJSON))
+    fs.writeFileSync(studentJsonPath, JSON.stringify({data: studentList}))
     res.redirect('/students')
 })
 
 app.get('/students/:id', (req, res) => {
-    let temp = parseInt(req.params.id)
-    let student = studentList.find(x => {x.id == temp})
-    console.log(student)
-    res.render('studentDetails', student=student)
+    let student = studentList.find(x => x.id == req.params.id)
+    if(student)
+        res.render('studentDetails', {student: student})
+    else
+        res.send("ID NOT FOUND!!!!")
 })
 
+app.post('/students/:id', (req, res) => {
+    studentList = studentList.map(x => {
+        if(x.id == req.params.id)
+            return {...x, nameE: req.body.nameE, age: req.body.age, course: req.body.course};
+        else
+            return x;
+    })
+    fs.writeFileSync(studentJsonPath, JSON.stringify({data: studentList}))
+    res.redirect('/students')
+})
